@@ -5,13 +5,8 @@ module.exports = {
     cooldown: 5,
     description: 'Start an inhouse.',
     run: async(client, message, args) => {
-        var inhouse_team1 = [];
-        var inhouse_team2 = [];
-        var seen_user_ids = [];
-        var seen_user_names = [];
 
         console.log(`${message.author.username} started an inhouse.`);
-
         const embeddedMessage = new Discord.MessageEmbed()
             .setColor('#0093ff')
             .setTitle(`${message.author.username} has started an inhouse.`)
@@ -24,6 +19,11 @@ module.exports = {
 
         message.channel.send(embeddedMessage).then(async msg => {
 
+            let inhouse_team1 = [];
+            let inhouse_team2 = [];
+            let seen_user_ids = [];
+            let seen_user_names = [];
+
             msg.react('👍');
             msg.react('✔');
 
@@ -35,27 +35,29 @@ module.exports = {
                     seen_user_ids.push(reaction.users.cache.last().id);
                     seen_user_names.push(reaction.users.cache.last().username);
 
-                    let exampleEmbed = new Discord.MessageEmbed()
+                    let editedEmbed = new Discord.MessageEmbed()
                     .setColor('#0093ff')
                     .setTitle(`${message.author.username} has started an inhouse.`)
                     .setAuthor("React with 👍 to join and ✔ to finish!")
                     .setDescription(`Joined users: ${seen_user_names.toString()}`)
                     .setTimestamp();
 
-                    msg.edit(exampleEmbed);
+                    msg.edit(editedEmbed);
                     console.log(seen_user_ids);
                     console.log(seen_user_names);
                 } 
 
                 if (reaction.emoji.name === '✔') {
+                    if(!reaction.users.cache.last().id === message.author.id) return;
                     if(reaction.users.cache.last().id === "610905633419427856") return;
                 
                     inhouse_team1 = shuffle(seen_user_names);
-                    var half = Math.ceil(inhouse_team1.length / 2);
+                    let half = Math.ceil(inhouse_team1.length / 2);
                     inhouse_team2 = inhouse_team1.splice(0, half);
                     
                     if(inhouse_team1.length >= 1 && inhouse_team2.length >= 1){
-                        const finishedTeamEmbed = new Discord.MessageEmbed()
+
+                        let finishedTeamEmbed = new Discord.MessageEmbed()
                         .setColor('#ff0000')
                         .setTitle(`${message.author.username}'s inhouse.`)
                         .addFields(
@@ -64,12 +66,16 @@ module.exports = {
                         );
     
                         msg.delete();
-
                         return message.channel.send(finishedTeamEmbed);
+
                     } else if (inhouse_team1.length < 1 && inhouse_team2.length < 2) {
+
                         return message.channel.send("Not enough players.");
+
                     } else {
+
                         return console.log("Something goofed up");
+
                     }
 
 
