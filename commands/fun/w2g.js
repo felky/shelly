@@ -3,7 +3,7 @@ let ytRegex = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-
 
 module.exports = {
     name: 'w2g',
-    cooldown: 5,
+    cooldown: 30,
     description: 'Starts and links a new Watch2Gether page.',
     run: async(client, message, args) => {
         var streamkey = ""; 
