@@ -11,20 +11,24 @@ module.exports = {
             .setColor('#0093ff')
             .setTitle(`Shelly commands:`)
             .addFields({
-                name: '?inhouse',
+                name: 'inhouse',
                 value: `Starts a new inhouse`,
                 inline: true
             }, {
-                name: '?ping',
+                name: 'ping',
                 value: `Pings the server`,
                 inline: true
             }, {
-                name: '?count',
+                name: 'count',
                 value: `Shows the number of servers using the bot`,
                 inline: true
             }, {
-                name: '?help',
+                name: 'help',
                 value: `Shows all commands - aka what you just used.`,
+                inline: true
+            }, {
+                name: 'w2g [youtube-link]',
+                value: 'Starts a new Watch2Gether room, preloads video optionally',
                 inline: true
             })
             .setTimestamp();
