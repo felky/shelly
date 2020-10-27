@@ -1,7 +1,6 @@
 const axios = require('axios')
 let ytRegex = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/
 
-
 module.exports = {
     name: 'w2g',
     cooldown: 5,
