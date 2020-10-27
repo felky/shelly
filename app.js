@@ -2,10 +2,8 @@ const {
     Client,
     Collection
 } = require("discord.js");
-const {
-    prefix,
-    token
-} = require('./config.json');
+
+require('dotenv').config()
 const fs = require('fs');
 
 const client = new Client();
@@ -27,7 +25,7 @@ client.once('ready', () => {
 });
 
 client.on("message", async message => {
-    const prefix = "?";
+    const prefix = process.env.PREFIX;
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
@@ -42,4 +40,4 @@ client.on("message", async message => {
     if (command) command.run(client, message, args);
 });
 
-client.login(token);
+client.login(process.env.DISCORD_TOKEN);
