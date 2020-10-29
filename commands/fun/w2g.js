@@ -29,6 +29,7 @@ module.exports = {
             console.error(error)
         })
 
+        await message.delete();
         await message.channel.send(`Room served at: https://w2g.tv/rooms/${streamkey}`)
     },
 };
