@@ -24,7 +24,7 @@ Then create your .env file in the root directory and add these variables
 	DISCORD_TOKEN="your discord token" 
 	W2G_KEY="your Watch2Gether api-key"
 	PREFIX="your preferred command prefix" 
-    RIOT_KEY=RGAPI-"your riot api key, this one will only last 24h for personal key" 
+    	RIOT_KEY="your riot api key, this one will only last 24h for personal key" 
 }
 ```
 When you are all done setting up Shelly, run the bot using:
