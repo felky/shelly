@@ -1,4 +1,4 @@
-# Shelly - The bot of your dreams 😍
+# 🐌 Shelly - The bot of your dreams
 
 Do you love challenging your friends to inhouses of your favorite games? 
 Say no more, Shelly got you covered. 
