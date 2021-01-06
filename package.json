@@ -5,7 +5,7 @@
   "main": "bot.js",
   "dependencies": {
     "ascii-table": "0.0.9",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
