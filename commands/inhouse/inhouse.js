@@ -29,35 +29,37 @@ module.exports = {
             msg.react('✔');
 
             client.on('messageReactionAdd', (reaction, user) => {
-                if (reaction.emoji.name === '👍') {
-                    if (reaction.users.cache.last().id === "610905633419427856") return;
-                    if (seen_user_ids.includes(reaction.users.cache.last().id)) return;
 
-                    seen_user_ids.push(reaction.users.cache.last().id);
-                    seen_user_names.push(reaction.users.cache.last().username);
+                switch(reaction.emoji.name) {
+                    case '👍':
+                        if (reaction.users.cache.last().id === "610905633419427856") return;
+                        if (seen_user_ids.includes(reaction.users.cache.last().id)) return;
 
-                    let editedEmbed = new Discord.MessageEmbed()
-                        .setColor('#0093ff')
-                        .setTitle(`${message.author.username} has started an inhouse.`)
-                        .setAuthor("React with 👍 to join and ✔ to finish!")
-                        .setDescription(`Joined users: ${seen_user_names.toString()}`)
-                        .setTimestamp();
+                        seen_user_ids.push(reaction.users.cache.last().id);
+                        seen_user_names.push(reaction.users.cache.last().username);
 
-                    msg.edit(editedEmbed);
-                    console.log(seen_user_ids);
-                    console.log(seen_user_names);
-                }
+                        let editedEmbed = new Discord.MessageEmbed()
+                            .setColor('#0093ff')
+                            .setTitle(`${message.author.username} has started an inhouse.`)
+                            .setAuthor("React with 👍 to join and ✔ to finish!")
+                            .setDescription(`Joined users (${seen_user_names.length}): ${seen_user_names.toString()}`)
+                            .setTimestamp();
 
-                if (reaction.emoji.name === '✔') {
-                    if (reaction.users.cache.last().id !== message.author.id) return;
-                    if (reaction.users.cache.last().id === "610905633419427856") return;
+                        msg.edit(editedEmbed);
+                        console.log(seen_user_ids);
+                        console.log(`Joined users: ${seen_user_names.length}`)
+                        console.log(seen_user_names);
+                        break;
+                    case '✔':
+                        if (reaction.users.cache.last().id !== message.author.id) return;
+                        if (reaction.users.cache.last().id === "610905633419427856") return;
 
-                    temp_users = seen_user_names.slice();
-                    console.log("temp users: " + temp_users);
-
-                    inhouse_team1 = shuffle(temp_users);
-                    let half = Math.ceil(inhouse_team1.length / 2);
-                    inhouse_team2 = inhouse_team1.splice(0, half);
+                        temp_users = seen_user_names.slice();
+                        console.log("temp users: " + temp_users);
+    
+                        inhouse_team1 = shuffle(temp_users);
+                        let half = Math.ceil(inhouse_team1.length / 2);
+                        inhouse_team2 = inhouse_team1.splice(0, half);
 
                     if (inhouse_team1.length >= 1 && inhouse_team2.length >= 1) {
 
@@ -125,6 +127,7 @@ module.exports = {
                         return console.log("Something goofed up");
 
                     }
+                    break;
                 }
 
                 function shuffle(array) {

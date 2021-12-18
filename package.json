@@ -1,15 +1,21 @@
 {
-  "name": "discord-bot",
-  "version": "0.0.5",
-  "description": "a nice ol' bot",
-  "main": "bot.js",
+  "name": "shelly",
+  "version": "0.1.0",
+  "description": "Allaround bot developed for personal use.",
+  "main": "app.js",
   "dependencies": {
+    "@discordjs/builders": "^0.9.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@discordjs/voice": "^0.7.5",
     "ascii-table": "0.0.9",
-    "discord.js": "^12.2.0",
-    "eslint": "^6.8.0",
-    "mongoose": "^5.9.10"
+    "canvas": "^2.8.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "eslint": "^8.4.1",
+    "mongoose": "^5.13.13",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

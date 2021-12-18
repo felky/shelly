@@ -3,6 +3,8 @@ module.exports = {
     cooldown: 5,
     description: 'The ball of truth.',
     run: async(client, message, args) => {
+
+
         var responses = ["Nope.", "Yes.", "Maybe?",
             "Absolutely!", "Not at the moment.",
             "Extremely", "Tomorrow.", "Absolutely not!",
@@ -10,5 +12,8 @@ module.exports = {
         ];
 
         await message.channel.send(`:8ball: ${responses[Math.floor(Math.random() * (responses.length - 1))]}`);
+
+
+
     },
 };

@@ -13,14 +13,15 @@ features:
 
 
 how to use: 
-    -make sure you have the latest version of node
-    -clone repo
-    -add a config.json file looking like this:
+    1. make sure you have the latest version of node
+    2. clone repo
+    3. add a config.json file looking like this:
+ 
     ```
         {
             "prefix": "YOUR PREFIX OF CHOICE",
             "token": "YOUR TOKEN HERE"
         }
     ```
-    -run the node app
-    -profit
+    4. run the node app
+    5.profit
